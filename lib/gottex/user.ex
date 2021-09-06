@@ -3,7 +3,8 @@ defmodule Gottex.User do
   import Ecto.Changeset
   import Bcrypt
 
-  @permitted_params ~w/name email password/a
+  @required_params ~w/name email password/a
+  @permitted_params ~w/name email password recovery_code/a
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
@@ -25,7 +26,7 @@ defmodule Gottex.User do
     user
     |> cast(params, @permitted_params)
     |> unique_constraint(:email)
-    |> validate_required(@permitted_params)
+    |> validate_required(@required_params)
     |> validate_length(:password, min: 6)
     |> validate_format(:email, ~r/@/)
     |> put_pass_hash()

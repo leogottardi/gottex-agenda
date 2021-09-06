@@ -3,7 +3,6 @@ defmodule GottexWeb.UsersController do
 
   action_fallback GottexWeb.FallbackController
 
-
   def create(conn, params) do
     with {:ok, user} <- Gottex.create_user(params),
          {:ok, token, _claims} <- GottexWeb.Auth.Guardian.encode_and_sign(user)

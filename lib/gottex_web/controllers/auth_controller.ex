@@ -4,8 +4,8 @@ defmodule GottexWeb.AuthController do
   action_fallback GottexWeb.FallbackController
 
   def login(conn, params) do
-    with {:ok, user} <- Gottex.Auth.Authentication.call(params),
-          {:ok, token, _claims} <- GottexWeb.Auth.Guardian.encode_and_sign(user)
+    with {:ok, user} <- Gottex.authenticate_user(params),
+         {:ok, token, _claims} <- GottexWeb.Auth.Guardian.encode_and_sign(user)
       do
 
       conn
