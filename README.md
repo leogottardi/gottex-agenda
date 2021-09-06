@@ -1,19 +1,48 @@
-# Gottex
 
-To start your Phoenix server:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server`
+# Gottex Agenda
+<h1>
+<img src="https://raw.githubusercontent.com/leogottardi/api-calculadora-romana/main/.github/api-calculadora.png">
+</h1>
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+# Indice
+- [Gottex Agenda](#gottex-agenda)
+- [Indice](#indice)
+  - [📑 Sobre](#-sobre)
+  - [🚀 Tecnologias utilizadas](#-tecnologias-utilizadas)
+  - [- Elixir](#--elixir)
+  - [📓 Como utilizar](#-como-utilizar)
+  - [📦 Como baixar o projeto](#-como-baixar-o-projeto)
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
-## Learn more
+## 📑 Sobre
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+O projeto é uma api de agenda, onde o usuário pode se cadastrar e salvar um ou mais contatos com algumas informações.
+
+---
+
+## 🚀 Tecnologias utilizadas
+
+O projeto foi desenvolvido utilizando a seguinte tecnologia :
+
+- [Elixir](https://elixir-lang.org/)
+---
+## 📓 Como utilizar
+  - A DESCREVER
+## 📦 Como baixar o projeto
+```bash
+    #Clonar o repositório
+    $ git clone https://github.com/leogottardi/gottex-agenda.git
+
+    #Entrar no diretório
+    $ git cd gottex
+
+    #Instalar as dependencias
+    $ mix deps.get
+
+    # Iniciar o banco e rodar as migrations
+    $ mix ecto.reset
+
+    #Iniciar o projeto
+    $ mix phx.server
+```
