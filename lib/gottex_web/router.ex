@@ -13,6 +13,9 @@ defmodule GottexWeb.Router do
     pipe_through [:api]
     post "/users", UsersController, :create
     post "/login", AuthController, :login
+
+    post "/request_code_recovery_password", AuthController, :request_code_recovery_password
+    post "/recover_password", AuthController, :recover_password
   end
 
   scope "/api", GottexWeb do
