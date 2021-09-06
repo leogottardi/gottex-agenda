@@ -10,7 +10,7 @@ defmodule GottexWeb.UsersController do
         do
       conn
       |> put_status(:created)
-        |> render("create.json", %{user: user, token: token})
+      |> render("create.json", %{user: user, token: token})
     end
   end
 

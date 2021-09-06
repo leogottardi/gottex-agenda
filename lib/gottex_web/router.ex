@@ -10,13 +10,14 @@ defmodule GottexWeb.Router do
   end
 
   scope "/api", GottexWeb do
-    pipe_through [:api, :auth]
-
-
+    pipe_through [:api]
     post "/users", UsersController, :create
-    get "/users/:id", UsersController, :show
-
     post "/login", AuthController, :login
+  end
+
+  scope "/api", GottexWeb do
+    pipe_through [:api, :auth]
+    get "/users/:id", UsersController, :show
   end
 
 
