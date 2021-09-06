@@ -1,9 +1,6 @@
 
 
 # Gottex Agenda
-<h1>
-<img src="https://raw.githubusercontent.com/leogottardi/api-calculadora-romana/main/.github/api-calculadora.png">
-</h1>
 
 # Indice
 - [Gottex Agenda](#gottex-agenda)
