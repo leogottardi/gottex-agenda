@@ -16,11 +16,13 @@ defmodule Gottex.User do
     field :password_hash, :string
     field :recovery_code, :string
 
+    has_many :contacts, Gottex.Contact
+
     timestamps()
   end
 
-  def changeset(params) do
-    %__MODULE__{}
+  def changeset(user \\ %__MODULE__{}, params) do
+    user
     |> cast(params, @permitted_params)
     |> unique_constraint(:email)
     |> validate_required(@permitted_params)
