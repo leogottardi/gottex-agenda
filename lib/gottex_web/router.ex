@@ -5,12 +5,19 @@ defmodule GottexWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", GottexWeb do
-    pipe_through :api
-
-    post "/users", UsersController, :create
+  pipeline :auth do
+    plug GottexWeb.Auth.Pipeline
   end
 
+  scope "/api", GottexWeb do
+    pipe_through [:api, :auth]
+
+
+    post "/users", UsersController, :create
+    get "/users/:id", UsersController, :show
+
+    post "/login", AuthController, :login
+  end
 
 
   if Mix.env() in [:dev, :test] do

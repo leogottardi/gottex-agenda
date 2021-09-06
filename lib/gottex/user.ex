@@ -7,6 +7,8 @@ defmodule Gottex.User do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
+  @derive {Jason.Encoder, only: @permitted_params ++ [:id]}
+
   schema "users" do
     field :name, :string
     field :email, :string
@@ -20,6 +22,7 @@ defmodule Gottex.User do
   def changeset(params) do
     %__MODULE__{}
     |> cast(params, @permitted_params)
+    |> unique_constraint(:email)
     |> validate_required(@permitted_params)
     |> validate_length(:password, min: 6)
     |> validate_format(:email, ~r/@/)

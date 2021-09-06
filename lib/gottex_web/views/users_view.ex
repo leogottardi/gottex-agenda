@@ -3,11 +3,17 @@ defmodule GottexWeb.UsersView do
 
   def render("create.json", %{user: user, token: token}) do
     %{
+      user: user,
+      token: token
+    }
+  end
+
+  def render("show.json", %{user: user}) do
+    %{
       user: %{
         name: user.name,
         email: user.email
-      },
-      token: token
+      }
     }
   end
 end

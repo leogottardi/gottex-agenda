@@ -9,6 +9,8 @@ defmodule Gottex.Repo.Migrations.CreateUsersTable do
       add :recovery_code, :string
 
       timestamps()
+
     end
+    create unique_index(:users, [:email])
   end
 end
