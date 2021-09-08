@@ -8,7 +8,7 @@ defmodule Gottex.User do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  @derive {Jason.Encoder, only: ~w/name email/a ++ [:id]}
+  @derive {Jason.Encoder, only: ~w/id name email/a}
 
   schema "users" do
     field :name, :string

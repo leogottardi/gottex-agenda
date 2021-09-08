@@ -21,6 +21,7 @@ defmodule GottexWeb.Router do
   scope "/api", GottexWeb do
     pipe_through [:api, :auth]
     get "/users/:id", UsersController, :show
+    post "/contacts", ContactsController, :create
   end
 
 

@@ -8,6 +8,8 @@ defmodule Gottex.Contact do
 
   @foreign_key_type :binary_id
 
+  @derive {Jason.Encoder, only: ~w/id name phone_number/a}
+
   schema "contacts" do
     field :name, :string
     field :phone_number, :string
@@ -19,6 +21,8 @@ defmodule Gottex.Contact do
   def changeset(contact \\ %__MODULE__{}, params) do
     contact
     |> cast(params, @permitted_params)
+    |> validate_required(@permitted_params)
     |> validate_length(:phone_number, min: 9, max: 9)
+    |> foreign_key_constraint(:user_id)
   end
 end
