@@ -23,6 +23,7 @@ defmodule Gottex.Contact do
     |> cast(params, @permitted_params)
     |> validate_required(@permitted_params)
     |> validate_length(:phone_number, min: 9, max: 9)
+    |> unique_constraint(:phone_number)
     |> foreign_key_constraint(:user_id)
   end
 end

@@ -9,5 +9,7 @@ defmodule Gottex.Repo.Migrations.AddContactsTable do
 
       timestamps()
     end
+
+    create unique_index(:contacts, [:phone_number])
   end
 end
