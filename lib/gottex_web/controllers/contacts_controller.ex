@@ -14,4 +14,14 @@ defmodule GottexWeb.ContactsController do
       |> render("create.json", %{contact: contact})
     end
   end
+
+  def index(conn, _params) do
+    with {:ok, user, _claims} <- GottexWeb.Auth.Guardian.get_resource_from_token(conn),
+        user_with_contacts <- user |> Gottex.Repo.preload(:contacts)
+      do
+        conn
+        |> put_status(:ok)
+        |> render("index.json", %{user: user_with_contacts})
+      end
+  end
 end
