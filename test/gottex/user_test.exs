@@ -1,10 +1,10 @@
 defmodule Gottex.UserTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   use Gottex.DataCase
 
   alias Gottex.User
 
-  describe "User test's" do
+  describe "Users C.R.U.D" do
 
     test "changeset/1, will a valid params return a valid changeset" do
       params = %{name: "Leonardo", email: "leomgottardi@gmail.com", password: "123456"}
